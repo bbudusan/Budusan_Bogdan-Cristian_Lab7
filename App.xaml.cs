@@ -24,7 +24,8 @@ public partial class App : Application
     public App()
 	{
 		InitializeComponent();
-
-		MainPage = new AppShell();
+       // Xamarin.FormsMaps.Init("bingmapkey");
+       // Windows.Services.Maps.MapService.ServiceToken = "bingmapkey";
+        MainPage = new AppShell();
 	}
 }

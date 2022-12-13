@@ -8,12 +8,19 @@ public partial class ListPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
     async void OnSaveButtonClicked(object sender, EventArgs e)
     {
         var slist = (ShopList)BindingContext;
         slist.Date = DateTime.UtcNow;
         await App.Database.SaveShopListAsync(slist);
         await Navigation.PopAsync();
+    }
+    async void OnDeleteButttonClicked(object sender, EventArgs e)
+    {
+        Product product = (Product)BindingContext;
+        await App.Database.DeleteProductAsync(product);
+        listView.ItemsSource = await App.Database.GetProductsAsync();
     }
     async void OnDeleteButtonClicked(object sender, EventArgs e)
     {
