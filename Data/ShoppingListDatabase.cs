@@ -62,6 +62,14 @@ namespace Budusan_Bogdan_Cristian_Lab7.Data
         {
             return _database.DeleteAsync(product);
         }
+
+
+        public Task<int> DeleteListProduct(ListProduct ls)
+        {
+            return _database.DeleteAsync(ls);
+        }
+
+
         public Task<List<Product>> GetProductsAsync()
         {
             return _database.Table<Product>().ToListAsync();
